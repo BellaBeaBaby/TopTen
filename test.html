@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup Window Example</title>
+    <script>
+        var popupWindow;
+
+        function openPopup() {
+            // Open a new popup window
+            popupWindow = window.open('', 'PopupWindow', 'width=300, height=200');
+            
+            // Create content for the popup window
+            var popupContent = '<html><head></head><body>';
+            popupContent += '<h1>Popup Window</h1>';
+            popupContent += '<button onclick="changeBackgroundColor()">Change Background Color</button>';
+            popupContent += '</body></html>';
+            
+            popupWindow.document.write(popupContent);
+        }
+
+        function changeBackgroundColor() {
+            // Change the background color of the main page to a random color
+            var colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'cyan'];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</head>
+<body>
+    <h1>Main Page</h1>
+    <button onclick="openPopup()">Open Popup</button>
+</body>
+</html>
