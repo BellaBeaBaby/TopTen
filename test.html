@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Reveal</title>
+</head>
+<body>
+    <h1>Button Reveal Example</h1>
+    
+    <div id="buttonContainer">
+        <!-- Button 1 -->
+        <button onclick="window.opener.reveal(1)">Reveal</button>
+		<span id="1"></span>
+		<br>
+        <!-- Button 2 -->
+        <button onclick="reveal(2)">Reveal</button>
+		<span id="2"></span>
+		<br>
+        <!-- Button 3 -->
+        <button onclick="reveal(3)">Reveal</button>
+		<span id="3"></span>
+		<br>
+        <!-- Button 4 -->
+        <button onclick="reveal(4)">Reveal</button>
+		<span id="4"></span>
+		<br>
+        <!-- Button 5 -->
+        <button onclick="reveal(5)">Reveal</button>
+        <span id="5"></span>
+		<br>
+        <!-- Button 6 -->
+        <button onclick="reveal(6)">Reveal</button>
+        <span id="6"></span>
+		<br>
+        <!-- Button 7 -->
+        <button onclick="reveal(7)">Reveal</button>
+        <span id="7"></span>
+		<br>
+        <!-- Button 8 -->
+        <button onclick="reveal(8)">Reveal</button>
+        <span id="8"></span>
+		<br>
+        <!-- Button 9 -->
+        <button onclick="reveal(9)">Reveal</button>
+        <span id="9"></span>
+		<br>
+        <!-- Button 10 -->
+        <button onclick="reveal(10)">Reveal</button>
+        <span id="10"></span>
+    </div>
+
+    <script>
+        function revealText(buttonNumber) {
+            // Replace the text in the corresponding text box
+            var textBox = document.getElementById("textbox" + buttonNumber);
+            textBox.value = "Text for button " + buttonNumber;
+        }
+    </script>
+</body>
+</html>
