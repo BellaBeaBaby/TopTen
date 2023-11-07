@@ -50,7 +50,7 @@
 
     <script>
 	for (let i = 1; i <= 10; i++) {
-		const hiddenText = window.parent.document.getElementById("hiddenText" + i);
+		const hiddenText = window.opener.document.getElementById("hiddenText" + i).value = "MyPopup";
 		const box = getElementById(i);
 		box.textContent = hiddenText.textContent;
 	}
