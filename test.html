@@ -49,16 +49,11 @@
     </div>
 
     <script>
-        function revealText(buttonNumber) {
-            // Replace the text in the corresponding text box
-            var textBox = document.getElementById("textbox" + buttonNumber);
-            textBox.value = "Text for button " + buttonNumber;
-        }
-		for (let i = 1; i <= 10; i++) {
-            const hiddenText = window.opener.document.getElementById("hiddenText" + i);
-			const box = getElementById(i);
-			box.textContent = hiddenText.textContent;
-		}
+	for (let i = 1; i <= 10; i++) {
+		const hiddenText = window.opener.document.getElementById("hiddenText" + i);
+		const box = getElementById(i);
+		box.textContent = hiddenText.textContent;
+	}
     </script>
 </body>
 </html>
