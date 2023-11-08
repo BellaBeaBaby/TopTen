@@ -3,98 +3,112 @@
 <head>
     <title>TopTen</title>
     <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-			font-size:	24px;
-        }
+		body {
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-size: 24px;
+			background-color: #2b2b2e; /* Background color for the body */
+			color: white; /* Text color */
+		}
 
-        h1 {
-            font-size: 50px;
-        }
+		h1 {
+			font-size: 50px;
+		}
 
-        #text-boxes {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+		#text-boxes {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-        .text-box {
-            display: flex;
-            align-items: center;
-            margin: 10px;
-        }
+		.text-box {
+			display: flex;
+			align-items: center;
+			margin: 10px;
+		}
 
-        input[type="text"] {
-            width: 200px;
-        }
+		input[type="text"] {
+			width: 200px;
+			background-color: #595959;
+			color: white;
+			text-align: center;
+		}
 
-        .hidden {
-            display: none;
-        }
+		.hidden {
+			display: none;
+		}
 
-        button {
-            margin: 20px;
-            padding: 10px 20px;
-            background-color: #0074D9;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-			font-size:	24px;
-        }
-    </style>
+		button {
+			margin: 20px;
+			padding: 10px 20px;
+			background-color: #7a1d7a; /* Background color for buttons */
+			color: white; /* Text color for buttons */
+			border: none;
+			cursor: pointer;
+			font-size: 24px;
+		}
+		.watermark {
+			font-size: 20px;
+			color: #FF00FF;
+		}
+		::placeholder {
+			color: white;
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
+	<span class="watermark">Give Bella an 100%</span><br><br>
 	<input type="text" id="Input" placeholder="category">
     <h1 class="hidden" id="Title"></h1>
     <div id="text-boxes">
         <div class="text-box">
-            <span id="number1">1.&nbsp</span>
+            <span id="number1">1.&nbsp &nbsp</span>
             <input type="text" id="box1">
             <span class="hidden" id="hiddenText1"></span>
         </div>
         <div class="text-box">
-            <span id="number2">2.&nbsp</span>
+            <span id="number2">2.&nbsp &nbsp</span>
             <input type="text" id="box2">
             <span class="hidden" id="hiddenText2"></span>
         </div>
         <div class="text-box">
-            <span id="number3">3.&nbsp</span>
+            <span id="number3">3.&nbsp &nbsp</span>
             <input type="text" id="box3">
             <span class="hidden" id="hiddenText3"></span>
         </div>
         <div class="text-box">
-            <span id="number4">4.&nbsp</span>
+            <span id="number4">4.&nbsp &nbsp</span>
             <input type="text" id="box4">
             <span class="hidden" id="hiddenText4"></span>
         </div>
         <div class="text-box">
-            <span id="number5">5.&nbsp</span>
+            <span id="number5">5.&nbsp &nbsp</span>
             <input type="text" id="box5">
             <span class="hidden" id="hiddenText5"></span>
         </div>
         <div class="text-box">
-            <span id="number6">6.&nbsp</span>
+            <span id="number6">6.&nbsp &nbsp</span>
             <input type="text" id="box6">
             <span class="hidden" id="hiddenText6"></span>
         </div>
         <div class="text-box">
-            <span id="number7">7.&nbsp</span>
+            <span id="number7">7.&nbsp &nbsp</span>
             <input type="text" id="box7">
             <span class="hidden" id="hiddenText7"></span>
         </div>
         <div class="text-box">
-            <span id="number8">8.&nbsp</span>
+            <span id="number8">8.&nbsp &nbsp</span>
             <input type="text" id="box8">
             <span class="hidden" id="hiddenText8"></span>
         </div>
         <div class="text-box">
-            <span id="number9">9.&nbsp</span>
+            <span id="number9">9.&nbsp &nbsp</span>
             <input type="text" id="box9">
             <span class="hidden" id="hiddenText9"></span>
         </div>
         <div class="text-box">
-            <span id="number10">10.&nbsp</span>
+            <span id="number10">10.</span>
             <input type="text" id="box10">
             <span class="hidden" id="hiddenText10"></span>
         </div>
@@ -103,9 +117,10 @@
     <button id="startGame">Start Game</button>
 
     <script>
+		let popup
         // Store the contents of the text boxes and hide them
         document.getElementById("startGame").addEventListener("click", function () {
-			const popup = window.open('test.html', 'MyPopup', 'width=300,height=400');
+			popup = window.open('test.html', 'MyPopup', 'width=300,height=400');
             for (let i = 1; i <= 10; i++) {
                 const inputBox = document.getElementById("box" + i);
                 const hiddenText = document.getElementById("hiddenText" + i);
@@ -115,13 +130,28 @@
                 hiddenText.style.display = "none";
 				startGame.style.display = "none";
             }
-				const catI = document.getElementById("Input")
-				const catT = document.getElementById("Title")
+				const catI = document.getElementById("Input");
+				const catT = document.getElementById("Title");
 				catT.textContent = catI.value;
-				catI.style.display = "none"
-				catT.style.display = "inline";
+				catI.style.display = "none";
+				catT.style.display = "inline";	
         });
-
+		function send() {
+			const dataToSend = {
+				entry1: document.getElementById("hiddenText1").textContent,
+				entry2: document.getElementById("hiddenText2").textContent,
+				entry3: document.getElementById("hiddenText3").textContent,
+				entry4: document.getElementById("hiddenText4").textContent,
+				entry5: document.getElementById("hiddenText5").textContent,
+				entry6: document.getElementById("hiddenText6").textContent,
+				entry7: document.getElementById("hiddenText7").textContent,
+				entry8: document.getElementById("hiddenText8").textContent,
+				entry9: document.getElementById("hiddenText9").textContent,
+				entry10: document.getElementById("hiddenText10").textContent,
+			};
+			popup.postMessage(dataToSend, "*");
+		}
+		
         // Function to reveal the hidden text for a given number
         function reveal(number) {
             const hiddenText = document.getElementById("hiddenText" + number);
