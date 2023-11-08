@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Button Reveal</title>
+    <title>Control Tab</title>
 </head>
-<body>
-    <h1>Button Reveal Example</h1>
+<body onload="window.opener.send()">
+    <h1>RevealButtons</h1>
     
     <div id="buttonContainer">
         <!-- Button 1 -->
+        <span>1.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(1)">Reveal</button>
 		<span id="1"></span>
 		<br>
         <!-- Button 2 -->
+        <span>2.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(2)">Reveal</button>
 		<span id="2"></span>
 		<br>
         <!-- Button 3 -->
+        <span>3.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(3)">Reveal</button>
 		<span id="3"></span>
 		<br>
         <!-- Button 4 -->
+        <span>4.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(4)">Reveal</button>
 		<span id="4"></span>
 		<br>
         <!-- Button 5 -->
+        <span>5.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(5)">Reveal</button>
         <span id="5"></span>
 		<br>
         <!-- Button 6 -->
+        <span>6.&nbsp &nbsp</span>
         <button onclick="opener.opener.reveal(6)">Reveal</button>
         <span id="6"></span>
 		<br>
         <!-- Button 7 -->
+        <span>7.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(7)">Reveal</button>
         <span id="7"></span>
 		<br>
         <!-- Button 8 -->
+        <span>8.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(8)">Reveal</button>
         <span id="8"></span>
 		<br>
         <!-- Button 9 -->
+        <span>9.&nbsp &nbsp</span>
         <button onclick="window.opener.reveal(9)">Reveal</button>
         <span id="9"></span>
 		<br>
         <!-- Button 10 -->
+        <span>10.&nbsp</span>
         <button onclick="window.opener.reveal(10)">Reveal</button>
         <span id="10"></span>
     </div>
 
     <script>
-	for (let i = 1; i <= 10; i++) {
-		const hiddenText = window.opener.document.querySelector(#"hiddenText" + i);
-		const box = getElementById(i);
-		box.textContent = hiddenText.textContent;
-	}
+		window.addEventListener("message", (event) => {
+			const receivedData = event.data;
+		  
+			for (let i = 1; i <= 10; i++) {
+				const box = document.getElementById(i)
+				box.textContent = receivedData["entry" + i]
+			}
+		});
+      
     </script>
 </body>
 </html>
